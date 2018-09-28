@@ -1,8 +1,8 @@
 import socket
 import os
 
-udp_ip = "127.0.0.1"
-udp_port = 5005
+udp_ip_receive = "177.105.60.226"
+udp_port_receive = 5005
 
 sockServer = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
@@ -11,12 +11,12 @@ sockClient = socket.socket(socket.AF_INET, # Internet
 			socket.SOCK_DGRAM) # UDP
 
 # Faz o bind local. Associa um socket com um IP e uma Porta.
-sockServer.bind((udp_ip, udp_port))
-# sockClient.bind((udp_ip, 5006))
+sockServer.bind((udp_ip_receive, udp_port_receive))
 
 while True:
 	mensage, addr = sockServer.recvfrom(1024) # Tamanho do buffer eh 1024 bytes
-	sockClient.sendto(mensage, (udp_ip, 5006))
+	print(addr)
+	sockClient.sendto(mensage, (addr[0], udp_port_receive))
      
 	if mensage == "EXIT":
 		print "Cliente Desconectou"
