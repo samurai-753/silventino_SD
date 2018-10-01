@@ -1,8 +1,8 @@
 import socket
 import os
 
-udp_ip_receive = "177.105.60.226"
-udp_port_receive = 5005
+udp_ip_receive = "192.168.103.5"
+udp_port_receive = 5002
 
 sockServer = socket.socket(socket.AF_INET, # Internet
                      socket.SOCK_DGRAM) # UDP
